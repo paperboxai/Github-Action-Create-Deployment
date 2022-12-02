@@ -45,11 +45,11 @@ async function main() {
         repo,
         ref,
       });
-      data.check_runs.filter((run) => req['required_contexts'].includes(run.name)).forEach((run) => {
-        if(['failure', 'action_required', 'timed_out', 'cancelled'].includes(run.conclusion)){
-          throw new Error("Cannot deploy some run checks have a failed state")
-        }
-      })
+      //data.check_runs.filter((run) => req['required_contexts'].includes(run.name)).forEach((run) => {
+      // if(['failure', 'action_required', 'timed_out', 'cancelled'].includes(run.conclusion)){
+      //    throw new Error("Cannot deploy some run checks have a failed state")
+      //  }
+      //})
       req['required_contexts'] = [];
     }
   }else{
@@ -58,11 +58,11 @@ async function main() {
       repo,
       ref,
     });
-    data.check_runs.forEach((run) => {
-      if(['failure', 'action_required', 'timed_out', 'cancelled'].includes(run.conclusion)){
-        throw new Error("Cannot deploy some run checks have a failed state")
-      }
-    })
+    //data.check_runs.forEach((run) => {
+    //  if(['failure', 'action_required', 'timed_out', 'cancelled'].includes(run.conclusion)){
+    //    throw new Error("Cannot deploy some run checks have a failed state")
+    //  }
+    //})
     req['required_contexts'] = [];
   }
 
